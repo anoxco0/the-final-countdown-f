@@ -1,3 +1,4 @@
+import axios from "axios";
 
 export const TEACHER_LOADING = "TEACHER_LOADING";
 export const TEACHER_SUCCESS = "TEACHER_SUCCESS";
@@ -30,5 +31,11 @@ export const addTeacher = ({name, gender, age, image})=>(dispatch)=>{
               "Content-Type":"application/json"
           }
         }).then(res=>res.json()).then((res)=>dispatch(teacherSuccess({name,age, gender,image})))
+        .catch(error=>dispatch(teacherFailure()))
+}
+export const getTeacher = ()=>(dispatch)=>{
+    dispatch(teacherLoading())
+        axios.get(`https://the-final-countdown-b.herokuapp.com/add-teacher`)
+        .then(res=>res.json()).then((res)=>dispatch(teacherSuccess(res.data)))
         .catch(error=>dispatch(teacherFailure()))
 }

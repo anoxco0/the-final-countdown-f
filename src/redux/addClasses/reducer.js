@@ -1,20 +1,20 @@
-import { TEACHER_FAILURE, TEACHER_LOADING, TEACHER_SUCCESS } from "./action"
+import { CLASSES_FAILURE, CLASSES_LOADING, CLASSES_SUCCESS } from "./action"
 const initState = {
     loading:false,
     error:false,
 }
 
- export const addTeacherReducer = (store=initState, {type, payload})=>{
+ export const addClassesReducer = (store=initState, {type, payload})=>{
     switch(type){
-        case TEACHER_LOADING:
+        case CLASSES_LOADING:
             return {...store, loading:true};
-        case TEACHER_SUCCESS:
+        case CLASSES_SUCCESS:
             return {
                 ...store,
                 loading:false,
                 error:false,
             }
-        case TEACHER_FAILURE:
+        case CLASSES_FAILURE:
             return {
                 ...store,
                 loading:false,

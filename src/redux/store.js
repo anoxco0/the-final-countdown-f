@@ -1,5 +1,6 @@
 import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import thunk from "redux-thunk";
+import { addClassesReducer } from "./addClasses/reducer";
 import { addTeacherReducer } from "./addTeacher/reducer";
 import { loginReducer } from "./login/reducer";
 import { signupReducer } from "./signup/reducer";
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
     login:loginReducer,
     signup:signupReducer,
     addteacher:addTeacherReducer,
+    addclass:addClassesReducer,
 })
 
 export const store = createStore(rootReducer, enhancer);

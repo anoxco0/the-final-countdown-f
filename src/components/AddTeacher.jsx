@@ -10,10 +10,11 @@ export const AddTeacher = ()=>{
     const dispatch = useDispatch();
     const [form, setForm] = useState({
         name:"",
-       gender:"",
-       age:"",
+        gender:"",
+        age:0,
        image:""
     })
+    console.log(form)
     const inputHandle = (e)=>{
         const {value, id} = e.target;
         setForm({...form, [id]:value});
@@ -22,18 +23,17 @@ export const AddTeacher = ()=>{
    const handleSubmit = ()=>{
        dispatch(addTeacher({name:form.name, gender:form.gender, age:form.age, image:form.image}))
    }
-
     return (
         <div>
+            <button onClick={()=>{navigate('/')}}>home</button>
             <h2>Add Teacher</h2>
-            <input onChange={(e)=>{inputHandle(e)}} type="text" name="" id="name" />
+            <input onChange={(e)=>{inputHandle(e)}} type="text" name="" id="name" placeholder="Name" />
             <select onChange={(e)=>{inputHandle(e)}} name="" id="gender">
                 <option  value="Male">Male</option>
                 <option value="Female">Female</option>
-                <option value="Others">Others</option>
             </select>
-            <input onChange={(e)=>{inputHandle(e)}} type="number" name="" id="age" />
-            <input onChange={(e)=>{inputHandle(e)}} type="text" name="" id="image" />
+            <input onChange={(e)=>{inputHandle(e)}} type="number" name="" id="age" placeholder="Age" />
+            <input onChange={(e)=>{inputHandle(e)}} type="text" name="" id="image" placeholder="Image" />
             <button onClick={()=>{handleSubmit()}}>Add</button>
         </div>
     )
