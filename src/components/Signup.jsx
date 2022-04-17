@@ -25,7 +25,7 @@ export const Signup = ()=>{
             <h1>Signup</h1>
             <input onChange={(e)=>{inputHandle(e)}} type="text" name="" id="name" placeholder="name" />
             <input onChange={(e)=>{inputHandle(e)}} type="text" name="" id="email" placeholder="email"/>
-            <input onChange={(e)=>{inputHandle(e)}} type="text" name="" id="password" placeholder="Password"/>
+            <input onChange={(e)=>{inputHandle(e)}} type="password" name="" id="password" placeholder="Password"/>
             <button onClick={()=>{handleSubmit()}}>Signup</button>
             <h3 onClick={()=>navigate("/login")} style={{color:'blue', cursor:"pointer", fontWeight:"400", fontSize:"14px"}}><i>already have new account</i></h3>
         </div>
