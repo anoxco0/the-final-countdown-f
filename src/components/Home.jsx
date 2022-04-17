@@ -11,7 +11,7 @@ export const Home = ()=>{
     const [sort, setSort] = useState(0);
     const array = new Array(page).fill(0);
     useEffect(()=>{
-        axios.get('http://localhost:5000/add-teacher?page=1&size=5')
+        axios.get('https://the-final-countdown-b.herokuapp.com/add-teacher?page=1&size=5')
         .then(res=>{
             setTeacher(res.data.users);
             setPage(res.data.total)
@@ -19,7 +19,7 @@ export const Home = ()=>{
         .catch(error=>console.log(error));
     },[]);
     const filter= ()=>{
-        axios.get(`http://localhost:5000/add-teacher?page=${page}&size=5&sort=${sort}`)
+        axios.get(`https://the-final-countdown-b.herokuapp.com/add-teacher?page=${page}&size=5&sort=${sort}`)
         .then(res=>setTeacher(res.data.users))
         .catch(error=>console.log(error));
     }
